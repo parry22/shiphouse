@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <defs>
+    <linearGradient id="sky" x1="0%" x2="0%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#eef7fb" />
+      <stop offset="100%" stop-color="#d9efe8" />
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#f4e3b2" />
+      <stop offset="45%" stop-color="#dbc083" />
+      <stop offset="100%" stop-color="#b78b44" />
+    </linearGradient>
+    <linearGradient id="stone" x1="0%" x2="100%" y1="0%" y2="0%">
+      <stop offset="0%" stop-color="#fffdf6" />
+      <stop offset="50%" stop-color="#ead9b2" />
+      <stop offset="100%" stop-color="#fff7e5" />
+    </linearGradient>
+    <linearGradient id="sea" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#8cc7c6" />
+      <stop offset="100%" stop-color="#4f939a" />
+    </linearGradient>
+    <clipPath id="roundel">
+      <circle cx="128" cy="128" r="122" />
+    </clipPath>
+  </defs>
+
+  <circle cx="128" cy="128" r="124" fill="#f8f2e7" />
+  <g clip-path="url(#roundel)">
+    <circle cx="128" cy="128" r="122" fill="url(#sky)" />
+    <rect x="0" y="158" width="256" height="98" fill="#d7edf0" opacity="0.55" />
+    <path
+      d="M30 179c25-15 54-21 82-18 29 3 54 12 79 7 13-3 24-8 35-15v103H30Z"
+      fill="#93c8c6"
+      opacity="0.35"
+    />
+
+    <circle cx="128" cy="116" r="82" fill="none" stroke="url(#gold)" stroke-width="5" />
+
+    <g transform="translate(104 58)">
+      <rect x="11" y="22" width="26" height="103" rx="11" fill="url(#stone)" stroke="#d5bc85" stroke-width="1.5" />
+      <rect x="3" y="8" width="42" height="15" rx="3" fill="url(#stone)" stroke="#d5bc85" stroke-width="1.5" />
+      <path d="M8 6c0-8 8-14 18-14s18 6 18 14" fill="none" stroke="#d5bc85" stroke-width="8" stroke-linecap="round" />
+      <path d="M12 4c0-6 5-10 14-10s14 4 14 10" fill="none" stroke="#f5e4b5" stroke-width="4" stroke-linecap="round" />
+      <path d="M17 30v89M24 30v89M31 30v89" stroke="#d9c494" stroke-width="3" stroke-linecap="round" />
+    </g>
+
+    <g transform="translate(125 51)">
+      <rect x="0" y="4" width="3" height="122" rx="1.5" fill="#c79d50" />
+      <path d="M4 9c22-7 35 5 40 3-10 10-28 13-40 6Z" fill="url(#gold)" />
+      <path d="M7 69c31 16 50 49 44 89-25-11-46-33-58-59 3-12 8-22 14-30Z" fill="#fff8e8" opacity="0.96" stroke="#e8d4a5" stroke-width="1.5" />
+    </g>
+
+    <path
+      d="M51 178c34 13 75 18 110 14 19-2 36-7 49-16-17 26-42 43-76 49-35 5-64-4-83-27Z"
+      fill="none"
+      stroke="url(#gold)"
+      stroke-width="10"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M42 195c26-15 64-14 92 1 19 10 42 14 71 6-18 18-41 28-67 30-36 3-69-9-96-37Z"
+      fill="none"
+      stroke="url(#sea)"
+      stroke-width="10"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M50 211c25-13 56-13 80 0 17 9 39 12 65 5-19 16-41 23-65 23-30 0-57-10-80-28Z"
+      fill="none"
+      stroke="#7bb2b0"
+      stroke-width="8"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </g>
+</svg>
