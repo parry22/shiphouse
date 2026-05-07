@@ -24,8 +24,8 @@ export default function LandingPage() {
           <span>actually ship</span>
         </h1>
         <p className="hero__copy">
-          Bringing some of the most cracked founders under one roof &amp;
-          helping them scale &amp; funded
+          Bringing some of the most cracked founders under one roof and
+          helping them scale and get funded.
         </p>
         <a className="hero__button" href={waitlistUrl}>
           Join the Waitlist
