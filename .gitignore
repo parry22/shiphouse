@@ -1,3 +1,12 @@
 .vercel
+.next/
+node_modules/
+out/
+*.tsbuildinfo
 apply/assets/
 apply/vite.svg
+.env
+.venv/
+*.db
+*.sqlite
+*.sqlite3
