@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Instrument_Serif, Inter } from "next/font/google";
+import { Instrument_Serif, Inter, DM_Sans } from "next/font/google";
 import "./globals.css";
 
 const instrumentSerif = Instrument_Serif({
@@ -12,6 +12,12 @@ const instrumentSerif = Instrument_Serif({
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter"
+});
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-dm-sans"
 });
 
 export const metadata: Metadata = {
@@ -31,7 +37,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${instrumentSerif.variable} ${inter.variable}`}>
+    <html lang="en" className={`${instrumentSerif.variable} ${inter.variable} ${dmSans.variable}`}>
       <body>{children}</body>
     </html>
   );

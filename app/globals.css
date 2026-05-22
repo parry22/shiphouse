@@ -3,6 +3,7 @@
     serif;
   --sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
     BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --dm-sans: var(--font-dm-sans), "DM Sans", ui-sans-serif, sans-serif;
   --white: #ffffff;
   --mist: #eef0f1;
   --ink: #0b0b09;
@@ -23,6 +24,10 @@ body {
   min-height: 100%;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   background: #12110d;
@@ -31,6 +36,7 @@ body {
   overflow-x: hidden;
 }
 
+/* ── Hero ─────────────────────────────────────────────────────────────── */
 .hero {
   position: relative;
   display: grid;
@@ -60,6 +66,23 @@ body {
   display: block;
   object-fit: cover;
   object-position: center center;
+}
+
+/* Bottom fade — blends hero into the light mid-wrap section below */
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 12%;
+  z-index: 0;
+  background: linear-gradient(
+    0deg,
+    #eef0f1 0%,
+    rgb(238 240 241 / 0) 100%
+  );
+  pointer-events: none;
 }
 
 .hero__shade {
@@ -99,6 +122,7 @@ body {
   margin: 0 auto;
   font-family: var(--serif);
   font-size: clamp(3.6rem, 5.6vw, 5rem);
+  font-style: italic;
   font-weight: 400;
   line-height: 0.98;
   white-space: nowrap;
@@ -158,6 +182,320 @@ body {
   outline-offset: 4px;
 }
 
+/* ── Mid wrap (Mission + FAQ) ─────────────────────────────────────────── */
+.mid-wrap {
+  background: #EEF0F1;
+  overflow: visible;
+}
+
+/* ── Mission section — 3-column grid ─────────────────────────────────── */
+.mission {
+  display: grid;
+  grid-template-columns: 1fr minmax(0, 620px) 1fr;
+  gap: 0 64px;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 96px 40px 72px;
+  align-items: start;
+  overflow: visible;
+}
+
+.mission__heading {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 48px;
+  font-weight: 400;
+  color: #000000;
+  margin: 0 0 48px;
+  line-height: 1.1;
+  text-align: center;
+}
+
+/* Centre text column */
+.mission__inner {
+  text-align: center;
+}
+
+/* Body paragraphs */
+.mission__text {
+  margin: 0 0 32px;
+  font-family: var(--dm-sans);
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.mission__text:last-child {
+  margin-bottom: 0;
+}
+
+/* Individual words — colour driven directly by scroll position via JS */
+.mission__word {
+  color: #777879;
+}
+
+/* ── Card columns ─────────────────────────────────────────────────────── */
+.mission__cards {
+  display: flex;
+  flex-direction: column;
+  gap: 320px;
+  /* height 0 + overflow visible = cards don't inflate the grid row height */
+  height: 0;
+  min-height: 0;
+  overflow: visible;
+}
+
+.mission__cards--left {
+  align-items: flex-end;   /* hug the text column */
+  padding-top: 40px;
+}
+
+.mission__cards--right {
+  align-items: flex-start; /* hug the text column */
+  padding-top: 160px;
+}
+
+.mcard {
+  pointer-events: none;
+  will-change: transform;
+  flex-shrink: 0;
+}
+
+.mcard img {
+  display: block;
+}
+
+/* Fixed-size frame so all 4 cards render identically */
+.mcard__frame {
+  position: relative;
+  width: 260px;
+  height: 314px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* Collapse card columns on narrow viewports */
+@media (max-width: 1100px) {
+  .mission {
+    grid-template-columns: 1fr;
+  }
+  .mission__cards {
+    display: none;
+  }
+}
+
+/* ── FAQs ─────────────────────────────────────────────────────────────── */
+.faqs {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 24px 96px;
+}
+
+.faqs__heading {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 48px;
+  font-weight: 400;
+  color: #000000;
+  text-align: center;
+  margin: 0 0 20px;
+  line-height: 1.05;
+}
+
+.faq__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.faq__item {
+  border-bottom: 1px dashed #c8c4bc;
+}
+
+.faq__question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--serif);
+  font-size: 24px;
+  font-weight: 400;
+  color: #000000;
+  text-align: left;
+  line-height: 1.2;
+}
+
+.faq__question:hover {
+  opacity: 0.7;
+}
+
+.faq__chevron {
+  flex-shrink: 0;
+  transition: transform 200ms ease;
+  color: #777879;
+}
+
+.faq__chevron--open {
+  transform: rotate(180deg);
+}
+
+.faq__answer {
+  padding: 0 0 20px;
+  font-family: var(--dm-sans);
+  font-size: 17px;
+  font-weight: 400;
+  color: #777879;
+  line-height: 1.6;
+}
+
+.faq__answer p {
+  margin: 0 0 10px;
+}
+
+.faq__answer p:last-child {
+  margin-bottom: 0;
+}
+
+/* ── Footer CTA ───────────────────────────────────────────────────────── */
+.cta {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 100vh;
+  min-height: 100dvh;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+/* Top fade — blends with the dark body background above */
+.cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  height: 8%;
+  z-index: 0;
+  background: linear-gradient(
+    180deg,
+    #eef0f1 0%,
+    rgb(238 240 241 / 0) 100%
+  );
+  pointer-events: none;
+}
+
+.cta__media,
+.cta__image,
+.cta__shade {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.cta__media {
+  z-index: -2;
+}
+
+.cta__image {
+  display: block;
+  object-fit: cover;
+  object-position: center 15%;
+}
+
+.cta__shade {
+  z-index: -1;
+  background:
+    linear-gradient(
+      180deg,
+      rgb(0 0 0 / 0.28) 0%,
+      rgb(0 0 0 / 0.22) 50%,
+      rgb(0 0 0 / 0.44) 100%
+    );
+}
+
+.cta__content {
+  position: relative;
+  z-index: 1;
+  max-width: min(94vw, 900px);
+  padding: 72px 24px;
+  text-align: center;
+  color: white;
+}
+
+.cta__heading {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(3rem, 5.6vw, 5rem);
+  font-weight: 400;
+  line-height: 1.05;
+  margin: 0 0 20px;
+  text-shadow: 0 1px 16px rgb(0 0 0 / 0.22);
+}
+
+.cta__copy {
+  font-family: var(--sans);
+  font-size: clamp(1.05rem, 1.67vw, 1.5rem);
+  font-weight: 400;
+  line-height: 1.4;
+  color: rgb(255 255 255 / 0.82);
+  margin: 0 0 36px;
+  text-shadow: 0 1px 10px rgb(0 0 0 / 0.18);
+}
+
+.cta__button {
+  border: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  background: var(--white);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  line-height: 1;
+  text-decoration: none;
+  box-shadow:
+    0 8px 24px rgb(0 0 0 / 0.1),
+    inset 0 1px 0 rgb(255 255 255 / 0.34);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+  margin-bottom: 28px;
+}
+
+.cta__button:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    0 10px 28px rgb(0 0 0 / 0.14),
+    inset 0 1px 0 rgb(255 255 255 / 0.5);
+}
+
+.cta__social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.cta__social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.8;
+  transition: opacity 180ms ease;
+}
+
+.cta__social-link:hover {
+  opacity: 1;
+}
+
+/* ── Mobile ───────────────────────────────────────────────────────────── */
 @media (max-width: 720px) {
   .hero__image {
     object-position: center center;
@@ -211,5 +549,14 @@ body {
     min-height: 47px;
     margin-top: 40px;
     font-size: 1.12rem;
+  }
+
+  .mission__heading,
+  .faqs__heading {
+    font-size: clamp(1.8rem, 8vw, 2.5rem);
+  }
+
+  .mission__text {
+    font-size: clamp(1rem, 4.2vw, 1.2rem);
   }
 }
