@@ -91,10 +91,10 @@ export default function LandingPage() {
             Join Our Waitlist
           </a>
           <div className="cta__social">
-            <a className="cta__social-link" href="#" aria-label="Instagram">
+            <a className="cta__social-link" href="https://www.instagram.com/theshiphouse._?igsh=bG84bmU1d3kxeTB6" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
               <InstagramIcon />
             </a>
-            <a className="cta__social-link" href="#" aria-label="X (Twitter)">
+            <a className="cta__social-link" href="https://x.com/shiphousehq?s=21" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
               <XIcon />
             </a>
           </div>
