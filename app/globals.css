@@ -198,6 +198,7 @@ body {
   padding: 96px 40px 72px;
   align-items: start;
   overflow: visible;
+  position: relative;
 }
 
 .mission__heading {
@@ -274,13 +275,48 @@ body {
   overflow: hidden;
 }
 
-/* Collapse card columns on narrow viewports */
+/* Collapse to single column on tablet — hide cards */
 @media (max-width: 1100px) {
   .mission {
     grid-template-columns: 1fr;
   }
   .mission__cards {
     display: none;
+  }
+}
+
+/* On mobile: show cards as absolute overlays behind the text */
+@media (max-width: 720px) {
+  .mission {
+    overflow: hidden; /* clip cards to section bounds on all sides */
+  }
+  .mission__inner {
+    position: relative;
+    z-index: 1;
+  }
+  .mission__cards {
+    display: flex;
+    position: absolute;
+    height: auto;
+    min-height: auto;
+    gap: 220px;
+    z-index: 0;
+  }
+  .mission__cards--left {
+    left: -50px;
+    top: 60px;
+    padding-top: 0;
+    align-items: flex-start;
+  }
+  .mission__cards--right {
+    right: -50px;
+    top: 220px;
+    padding-top: 0;
+    align-items: flex-end;
+  }
+  .mcard__frame {
+    width: 160px;
+    height: 193px;
   }
 }
 
