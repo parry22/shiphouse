@@ -116,13 +116,13 @@ export default function Faq() {
               />
             </svg>
           </button>
-          {open === i && (
+          <div className={`faq__answer-wrap${open === i ? " faq__answer-wrap--open" : ""}`}>
             <div className="faq__answer">
               {item.a.map((line, j) => (
                 <p key={j}>{line}</p>
               ))}
             </div>
-          )}
+          </div>
         </li>
       ))}
     </ul>

@@ -380,13 +380,30 @@ body {
   transform: rotate(180deg);
 }
 
+/* Slide wrapper — grid trick gives a true height transition with no hardcoded max */
+.faq__answer-wrap {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 300ms ease;
+}
+
+.faq__answer-wrap--open {
+  grid-template-rows: 1fr;
+}
+
 .faq__answer {
-  padding: 0 0 20px;
+  overflow: hidden;
+  padding: 0 0 0;
   font-family: var(--dm-sans);
   font-size: 17px;
   font-weight: 400;
   color: #777879;
   line-height: 1.6;
+  transition: padding 300ms ease;
+}
+
+.faq__answer-wrap--open .faq__answer {
+  padding: 0 0 20px;
 }
 
 .faq__answer p {
