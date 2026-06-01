@@ -1,7 +1,7 @@
 import Faq from "./components/Faq";
 import MissionSection from "./components/MissionSection";
 
-const waitlistUrl = "https://app.youform.com/forms/sc5fwcwb";
+const waitlistUrl = "https://app.youform.com/build/cazhyfqy?block_id=be1255cf-e2d7-4e18-9fe1-1fb6934f81f0";
 
 function InstagramIcon() {
   return (
@@ -50,7 +50,7 @@ export default function LandingPage() {
             helping them crack distribution
           </p>
           <a className="hero__button" href={waitlistUrl}>
-            Apply for Upcoming Cohort
+            Apply to Cohort 01
           </a>
         </div>
       </section>
@@ -88,7 +88,7 @@ export default function LandingPage() {
             applications for our first cohort.
           </p>
           <a className="cta__button" href={waitlistUrl}>
-            Join Our Waitlist
+            Apply to Cohort 01
           </a>
           <div className="cta__social">
             <a className="cta__social-link" href="https://www.instagram.com/theshiphouse._?igsh=bG84bmU1d3kxeTB6" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
