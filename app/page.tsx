@@ -1,7 +1,7 @@
 import Faq from "./components/Faq";
 import MissionSection from "./components/MissionSection";
 
-const waitlistUrl = "https://app.youform.com/build/cazhyfqy?block_id=be1255cf-e2d7-4e18-9fe1-1fb6934f81f0";
+const waitlistUrl = "https://app.youform.com/forms/cazhyfqy";
 
 function InstagramIcon() {
   return (
